@@ -19,12 +19,6 @@ public class IRCMessage {
 	 */
 	private final String raw;
 	
-	@Override
-	public String toString() {
-		return "IRCMessage [tags=" + tags + ", prefix=" + prefix + ", command=" + command + ", parameters="
-				+ Arrays.toString(parameters) + ", middle=" + Arrays.toString(middle) + ", trailing=" + trailing + "]";
-	}
-
 	/**
 	 * IRCv3.2 Message Tags
 	 * 
@@ -183,5 +177,15 @@ public class IRCMessage {
 	public String getTrailing() {
 		return this.trailing;
 	}
+	
+	/**
+	 * ToString
+	 */
+	@Override
+	public String toString() {
+		return "IRCMessage [tags=" + tags + ", prefix=" + prefix + ", command=" + command + ", parameters="
+				+ Arrays.toString(parameters) + ", middle=" + Arrays.toString(middle) + ", trailing=" + trailing + "]";
+	}
+
 
 }
