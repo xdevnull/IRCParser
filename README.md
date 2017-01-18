@@ -27,18 +27,18 @@ Parse raw input from server to IRCMessage
  
 ## `public class IRCMessage`
 
-### `private final String raw`
+#### `private final String raw`
 
 Raw message before parsing
 
-## `private final HashMap<String, String> tags`
+#### `private final HashMap<String, String> tags`
 
 IRCv3.2 Message Tags
 ```
 additional and optional metadata included with relevant messages.
 ABNF: [ "@" tags SPACE ] tags = tag *[ ";" tag ] tag = key [ "=" value ] key = [ vendor "/" ] 1*( ALPHA / DIGIT / "-" ) value = *valuechar valuechar = %x01-06 / %x08-09 / %x0B-0C / %x0E-1F / %x21-3A / %x3C-FF ; any octet except NUL, BELL, CR, LF, " " and ";"
 ```
-## `private final String prefix`
+#### `private final String prefix`
 
 Message Prefix
 
@@ -47,7 +47,7 @@ The prefix is used by servers to indicate the true origin of a message.
 ```
 ABNF: prefix = servername / ( nickname [ [ "!" user ] "@" host ] )
 ```
-## `private final String command`
+#### `private final String command`
 
 Message Command
 
@@ -56,7 +56,7 @@ The command must either be a valid IRC command or a three-digit number represent
 ABNF: command = 1*letter / 3digit
 ```
 
-## `private final String[] parameters`
+#### `private final String[] parameters`
 
 Message Parameters
 
@@ -66,17 +66,17 @@ ABNF: params = *14( SPACE middle ) [ SPACE ":" trailing ] =/ 14( SPACE middle ) 
 ```
 
 
-## `private final String[] middle`
+#### `private final String[] middle`
 
 Message Parameters Middle Part
 ```
 ABNF: nospcrlfcl *( ":" / nospcrlfcl )
 ```
-## `private final String trailing`
+#### `private final String trailing`
 ```
 Message parameters Trailing part *( ":" / " " / nospcrlfcl )
 ```
-## `public IRCMessage(String raw, HashMap<String, String> tags, String prefix, String command, String[] middle, String trailing)`
+#### `public IRCMessage(String raw, HashMap<String, String> tags, String prefix, String command, String[] middle, String trailing)`
 
 IRCMessage
 
@@ -88,7 +88,7 @@ IRCMessage
    * `middle` — Message Parameters Middle
    * `trailing` — Message Parameters Trailing
 
-## `public String getRaw()`
+#### `public String getRaw()`
 
 Get raw message (Original before parsing)
 
@@ -100,37 +100,36 @@ Get message tags
 
  * **Returns:** Message tags
 
-## `public String getPrefix()`
+#### `public String getPrefix()`
 
 Get message prefix
 
  * **Returns:** Message prefix
 
-## `public String getCommand()`
+#### `public String getCommand()`
 
 Get message command
 
  * **Returns:** Message command
 
-## `public String[] getParameters()`
+#### `public String[] getParameters()`
 
 Get message parameters
 
  * **Returns:** Message parameters
 
-## `public String[] getMiddle()`
+#### `public String[] getMiddle()`
 
 Get message parameters middle part
 
  * **Returns:** Message parameters middle part
 
-## `public String getTrailing()`
+#### `public String getTrailing()`
 
 Get message parameters trailing part
 
  * **Returns:** Message parameters trailing part
 
-## `@Override  public String toString()`
+#### `@Override  public String toString()`
 
-ToString
  
